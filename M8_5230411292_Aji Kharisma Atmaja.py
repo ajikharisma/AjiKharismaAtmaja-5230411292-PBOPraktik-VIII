@@ -116,9 +116,10 @@ class antrian:
                 if len(queue) < porsi:
                     queue.append(nama)
                     pesanan_label.insert("", "end", values=(str(len(queue)), nama))
-                    self.nama_entry.delete(0, tk.END)
-                else:
+                    self.nama_entry.delete(0, tk.END)  
+                if len(queue) == porsi:
                     messagebox.showinfo("Info", "Antrian penuh")
+                    porsi_entry.delete(0, tk.END)  
             except ValueError:
                 messagebox.showerror("Error", "Porsi harus angka.")
         else:
